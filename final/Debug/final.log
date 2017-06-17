@@ -1,17 +1,48 @@
-﻿Build started 2017/6/16 下午 03:41:34.
+﻿Build started 2017/6/17 下午 05:24:16.
      1>Project "C:\Users\User\Desktop\homework\成圖\final\final\final.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\final.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt final.cpp
          final.cpp
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(40): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(99): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(100): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(120): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(121): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(128): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(129): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(192): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(307): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(25): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(123): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(124): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(144): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(145): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(152): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(153): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(216): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(246): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(247): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(254): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(260): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(261): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(262): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(263): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(275): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(276): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(277): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(278): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(279): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(283): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(284): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(285): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(286): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(287): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(303): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(304): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(305): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(306): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(310): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(311): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(312): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(313): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(314): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(399): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(519): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(529): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(541): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib glew32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib freeglut.lib glew32s.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.lib" /MACHINE:X86 Debug\final.obj
          Debug\glm.obj
@@ -22,4 +53,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.31
+Time Elapsed 00:00:01.51
