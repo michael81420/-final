@@ -161,7 +161,7 @@ void draw_Hero_state(){
 	double HP_x[3], MP_x[3];
 	int hero_head = 12; // 12為左英雄的圖片;11為中英雄的圖片;10為右英雄的圖片
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 2; i >= 0; i--)
 	{
 		HP_x[i] = -55 + 20 * hero_Now_HP[i] / hero_Max_HP[i];
 		MP_x[i] = -55 + 20 * hero_Now_MP[i] / hero_Max_MP[i];
@@ -381,6 +381,17 @@ void draw_Monster_get_damage(){
 	glColor3f(0.5, 0.5, 0.5);
 }
 
+void draw_Hero_get_damage(){
+	char tmp[100];
+	_itoa(-monster_attack[direct_monster], tmp, 10);
+	glColor3f(1.0, 1.0, 0.0);
+	glPushMatrix();
+	glTranslated(0.0, 0.0, 2.0);
+	output(0, 5, tmp);
+	glPopMatrix();
+	glColor3f(0.5, 0.5, 0.5);
+}
+
 void load_monster(){
 	glm_model = glmReadOBJ("monster/Gargoyle_1.obj");
 	glmUnitize(glm_model);
@@ -467,7 +478,7 @@ void round_over(){
 			direct_hero = rand() % 3;
 		} while (hero_Now_HP[direct_hero] == 0);
 
-		glutTimerFunc(33, monster_move, NULL);
+		glutTimerFunc(20, monster_move, NULL);
 	}
 }
 
@@ -500,8 +511,16 @@ void damage_to_monster(int to_damage){
 	}
 }
 
-void damage_to_hero(int id, int damage){
+void damage_to_hero(int to_damage){
 
+	if (hero_Now_HP[direct_hero] - to_damage <= 0)
+	{
+		hero_Now_HP[direct_hero] = 0;
+	}
+	else
+	{
+		hero_Now_HP[direct_hero] -= to_damage;
+	}
 }
 
 void monster_move(int id){
@@ -526,8 +545,8 @@ void monster_move(int id){
 				else if (monster_move_dis_Z == 25)
 				{
 					clock = false;
-					//monster_get_damage[direct_monster] = true;
-					//damage_to_monster(hero_attack[direct_hero]);
+					hero_get_damage[direct_hero] = true;
+					damage_to_hero(monster_attack[direct_monster]);
 				}
 			}
 			else
@@ -539,7 +558,7 @@ void monster_move(int id){
 				}
 				else if (monster_move_dis_Z == 0)
 				{
-					//monster_get_damage[direct_monster] = false;
+					hero_get_damage[direct_monster] = false;
 					do
 					{
 						direct_hero = rand() % 3;
@@ -572,8 +591,8 @@ void monster_move(int id){
 				else if (monster_move_dis_Z == 25)
 				{
 					clock = false;
-					//monster_get_damage[direct_monster] = true;
-					//damage_to_monster(hero_attack[direct_hero]);
+					hero_get_damage[direct_hero] = true;
+					damage_to_hero(monster_attack[direct_monster]);
 				}
 			}
 			else
@@ -585,7 +604,7 @@ void monster_move(int id){
 				}
 				else if (monster_move_dis_Z == 0)
 				{
-					//monster_get_damage[direct_monster] = false;
+					hero_get_damage[direct_hero] = false;
 					do
 					{
 						direct_hero = rand() % 3;
@@ -618,8 +637,8 @@ void monster_move(int id){
 				else if (monster_move_dis_Z == 25)
 				{
 					clock = false;
-					//monster_get_damage[direct_monster] = true;
-					//damage_to_monster(hero_attack[direct_hero]);
+					hero_get_damage[direct_hero] = true;
+					damage_to_hero(monster_attack[direct_monster]);
 				}
 			}
 			else
@@ -631,7 +650,7 @@ void monster_move(int id){
 				}
 				else if (monster_move_dis_Z == 0)
 				{
-					//monster_get_damage[direct_monster] = false;
+					hero_get_damage[direct_hero] = false;
 					clock = true;
 					over = true;
 					direct_hero = right_hero;
@@ -647,12 +666,11 @@ void monster_move(int id){
 		{
 			game_over();
 		}
-
 	}
 
 	if (!over)
 	{
-		glutTimerFunc(33, monster_move, 0);
+		glutTimerFunc(20, monster_move, 0);
 	}
 
 	glutPostRedisplay();
@@ -861,41 +879,62 @@ void myDisplay(void)
 		}
 
 		/****Hero*****/
-		glPushMatrix();
+		
 
 		//glBindTexture(GL_TEXTURE_2D, set_textureId[10]);
 		
-
-		glTranslatef(10.0, 0.0, 20.0);
-		if (direct_hero == right_hero && !monster_round){
-			glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z); //英雄移動
-			draw_Hero_direct();
-		}
+		if (hero_Now_HP[2] != 0)
+		{
+			glPushMatrix();
+			glTranslatef(10.0, 0.0, 20.0);
+			if (direct_hero == right_hero && !monster_round){
+				glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z); //英雄移動
+				draw_Hero_direct();
+			}
+			if (hero_get_damage[2])
+			{
+				draw_Hero_get_damage();
+			}
 			glutSolidCube(5.0);
 			//glCallList(list_id);
-		glTranslatef(-10.0, 0.0, -20.0);
-		glPopMatrix();
-
-		glPushMatrix();
-		glTranslatef(0.0, 0.0, 20.0);
-		if (direct_hero == middle_hero && !monster_round){
-			glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z);
-			draw_Hero_direct();
+			glTranslatef(-10.0, 0.0, -20.0);
+			glPopMatrix();
 		}
-			glutSolidCube(5.0);
-			//glCallList(list_id);
-		glTranslatef(0.0, 0.0, -20.0);
-		glPopMatrix();
 
-		glPushMatrix();
-		glTranslatef(-10.0, 0.0, 20.0);
-		if (direct_hero == left_hero && !monster_round){
-			glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z);
-			draw_Hero_direct();
+		if (hero_Now_HP[1] != 0)
+		{
+			glPushMatrix();
+			glTranslatef(0.0, 0.0, 20.0);
+			if (direct_hero == middle_hero && !monster_round){
+				glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z);
+				draw_Hero_direct();
+			}
+			if (hero_get_damage[1])
+			{
+				draw_Hero_get_damage();
+			}
+				glutSolidCube(5.0);
+				//glCallList(list_id);
+			glTranslatef(0.0, 0.0, -20.0);
+			glPopMatrix();
 		}
-			glutSolidCube(5.0);
-			//glCallList(list_id);
-		glPopMatrix();
+
+		if (hero_Now_HP[0] != 0)
+		{
+			glPushMatrix();
+			glTranslatef(-10.0, 0.0, 20.0);
+			if (direct_hero == left_hero && !monster_round){
+				glTranslatef(hero_move_dis_X, hero_move_dis_Y, hero_move_dis_Z);
+				draw_Hero_direct();
+			}
+			if (hero_get_damage[0])
+			{
+				draw_Hero_get_damage();
+			}
+				glutSolidCube(5.0);
+				//glCallList(list_id);
+			glPopMatrix();
+		}
 	glPopMatrix();
 
 	glPushMatrix();
@@ -952,28 +991,34 @@ void detect_hero_blood(){
 	switch (direct_hero)
 	{//如果傳入的英雄有死亡的可能，則要再另外加入偵測
 	case 0:
-		if (hero_Now_HP[0] >= (hero_Max_HP[0] - red_water_resume_amount)){
+		if (hero_Now_HP[0] >= (hero_Max_HP[0] - red_water_resume_amount))
+		{
 			hero_Now_HP[0] = hero_Max_HP[0];
 		}
-		else{
+		else
+		{
 			hero_Now_HP[0] += red_water_resume_amount;
 		}
 		red_water_number -= 1;
 		break;
 	case 1:
-		if (hero_Now_HP[1] >= (hero_Max_HP[1] - red_water_resume_amount)){
+		if (hero_Now_HP[1] >= (hero_Max_HP[1] - red_water_resume_amount))
+		{
 			hero_Now_HP[1] = hero_Max_HP[1];
 		}
-		else{
+		else
+		{
 			hero_Now_HP[1] += red_water_resume_amount;
 		}
 		red_water_number -= 1;
 		break;
 	case 2:
-		if (hero_Now_HP[2] >= (hero_Max_HP[2] - red_water_resume_amount)){
+		if (hero_Now_HP[2] >= (hero_Max_HP[2] - red_water_resume_amount))
+		{
 			hero_Now_HP[2] = hero_Max_HP[2];
 		}
-		else{
+		else
+		{
 			hero_Now_HP[2] += red_water_resume_amount;
 		}
 		red_water_number -= 1;
@@ -1003,7 +1048,7 @@ void detect_key_Enter(){
 			//hero_do = attack;
 
 		}
-		else if (!hero_moving)
+		else
 		{
 			if (table_texture_control == init_texture){ // 在首頁欄
 				if (direct_which == 0){
@@ -1056,6 +1101,7 @@ void detect_key_Enter(){
 				if (direct_which == 0){
 					if (red_water_number > 0){
 						detect_hero_blood();
+						round_over();
 					}
 					printf("紅藥水量 = %d\n", red_water_number);
 					//紅藥水
@@ -1064,6 +1110,7 @@ void detect_key_Enter(){
 				{
 					if (blue_water_number > 0){
 						detect_hero_blue();
+						round_over();
 					}
 					printf("藍藥水量 = %d\n", blue_water_number);
 					//藍藥水
@@ -1110,7 +1157,7 @@ void keyPress(unsigned char key, int x, int y){
 	switch (key)
 	{
 	case 13: //Enter key
-		if (!monster_round)
+		if (!monster_round & !hero_moving)
 		{
 			detect_key_Enter();
 		}
@@ -1140,14 +1187,19 @@ void select_table(GLint key, GLint x, GLint y){
 	case GLUT_KEY_LEFT:
 		if (attack_screen && !hero_moving && !monster_round)
 		{
-			direct_monster = (direct_monster + 2) % 3;
+			do{
+				direct_monster = (direct_monster + 2) % 3;
+			} while (monster_Now_HP[direct_monster] == 0);
 			PlaySound(TEXT("sound/choose_enemy.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_RIGHT:
 		if (attack_screen && !hero_moving && !monster_round)
 		{
-			direct_monster = (direct_monster + 1) % 3;
+			do
+			{
+				direct_monster = (direct_monster + 1) % 3;
+			} while (monster_Now_HP[direct_monster] == 0);
 			PlaySound(TEXT("sound/choose_enemy.wav"), NULL, SND_ASYNC);
 		}
 		break;
