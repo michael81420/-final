@@ -544,6 +544,7 @@ void monster_move(int id){
 					{
 						direct_hero = rand() % 3;
 					} while (hero_Now_HP[direct_hero] == 0);
+					clock = true;
 					monster_attack_over[2] = true;
 				}
 			}
@@ -589,6 +590,7 @@ void monster_move(int id){
 					{
 						direct_hero = rand() % 3;
 					} while (hero_Now_HP[direct_hero] == 0);
+					clock = true;
 					monster_attack_over[1] = true;
 				}
 			}
@@ -630,6 +632,7 @@ void monster_move(int id){
 				else if (monster_move_dis_Z == 0)
 				{
 					//monster_get_damage[direct_monster] = false;
+					clock = true;
 					over = true;
 					direct_hero = right_hero;
 					for (int i = 0; i < 3; i++)
@@ -1102,19 +1105,15 @@ void detect_key_Enter(){
 	}
 }
 
-void monsterDisplay(){
-
-	if (monster_round){
-		
-	}
-}
-
 void keyPress(unsigned char key, int x, int y){
 
 	switch (key)
 	{
 	case 13: //Enter key
-		detect_key_Enter();
+		if (!monster_round)
+		{
+			detect_key_Enter();
+		}
 		break;
 	}
 	glutPostRedisplay();
@@ -1125,28 +1124,28 @@ void select_table(GLint key, GLint x, GLint y){
 	switch (key)
 	{
 	case GLUT_KEY_UP:
-		if (!attack_screen && !hero_moving && bool_diagram)
+		if (!attack_screen && !hero_moving && bool_diagram && !monster_round)
 		{
 			direct_which = (direct_which + 3) % 4;
 			PlaySound(TEXT("sound/choose_table.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_DOWN:
-		if (!attack_screen && !hero_moving && bool_diagram)
+		if (!attack_screen && !hero_moving && bool_diagram && !monster_round)
 		{
 			direct_which = (direct_which + 1) % 4;
 			PlaySound(TEXT("sound/choose_table.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_LEFT:
-		if (attack_screen && !hero_moving)
+		if (attack_screen && !hero_moving && !monster_round)
 		{
 			direct_monster = (direct_monster + 2) % 3;
 			PlaySound(TEXT("sound/choose_enemy.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_RIGHT:
-		if (attack_screen && !hero_moving)
+		if (attack_screen && !hero_moving && !monster_round)
 		{
 			direct_monster = (direct_monster + 1) % 3;
 			PlaySound(TEXT("sound/choose_enemy.wav"), NULL, SND_ASYNC);
@@ -1173,7 +1172,6 @@ int _tmain(int argc, char* argv[])
 	load_monster();
 	game_init();
 
-	glutIdleFunc(monsterDisplay);
 	glutDisplayFunc(&myDisplay);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(keyPress);
