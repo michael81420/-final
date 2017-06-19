@@ -83,6 +83,8 @@ int direct_hero = right_hero; // 目前你指向哪一個英雄
 #define left_monster 0
 int direct_monster = right_monster; // 目前你指向哪一個怪獸
 
+bool victory, judge_game_over;
+
 int monster_Max_HP[3], monster_Now_HP[3], hero_Max_HP[3], hero_Now_HP[3], hero_Max_MP[3], hero_Now_MP[3]
 	, hero_attack[3], monster_attack[3];
 int game_round = 0;
@@ -100,7 +102,7 @@ void draw_Hero_get_damage();
 void load_monster();
 void game_over();
 void monster_move(int id);
-void output(int x, int y, char *string);
+void output(float x, float y, char *string);
 
 
 GLuint load_texture(char* texture_name){
@@ -202,7 +204,16 @@ void draw_Hero_state(){
 		strcat(s, tmp);
 		glColor3f(1.0, 1.0, 1.0);
 		glPushMatrix();
-		output(-35, 36, s);
+			output(-35, 35.7, s);
+		glPopMatrix();
+
+		_itoa(hero_Now_MP[i], s, 10);
+		_itoa(hero_Max_MP[i], tmp, 10);
+		strcat(s, " / ");
+		strcat(s, tmp);
+		glColor3f(1.0, 1.0, 1.0);
+		glPushMatrix();
+			output(-35, 33.7, s);
 		glPopMatrix();
 	}
 
@@ -454,51 +465,83 @@ void Init(){
 }
 
 void game_init(){
+	direct_hero != right_hero;
+	judge_game_over = false;
+	victory = false;
 
 	for (int i = 0; i < 3; i++)
 	{
 		monster_Max_HP[i] = 100;
 		monster_Now_HP[i] = monster_Max_HP[i];
 		hero_Max_HP[i] = 100;
-		hero_Now_HP[i] = hero_Max_HP[i];
+		//hero_Now_HP[i] = hero_Max_HP[i];
+		hero_Now_HP[i] =20;
 		hero_Max_MP[i] = 30;
 		hero_Now_MP[i] = hero_Max_MP[i];
 		monster_attack[i] = 10;
 	}
-		hero_attack[0] = 100;
+		hero_attack[0] = 10;
 		hero_attack[1] = 20;
 		hero_attack[2] = 30;
 }
 
 void round_over(){
+
 	game_round++;
 
-	table_texture_control = init_texture;
-	direct_which = 0;
-
-	if (direct_hero != left_hero)
+	if (hero_Now_HP[0] == 0 && hero_Now_HP[1] == 0 && hero_Now_HP[2] == 0)
 	{
-		direct_hero--;
+		victory = false;
+		judge_game_over = true;
+		game_over();
 	}
-	hero_do = nothing;
-
-	if (game_round % 3 == 0)
+	else if (monster_Now_HP[0] == 0 && monster_Now_HP[1] == 0 && monster_Now_HP[2] == 0)
 	{
-		monster_round = true;
-		do
-		{
-			direct_hero = rand() % 3;
-		} while (hero_Now_HP[direct_hero] == 0);
+		victory = true;
+		judge_game_over = true;
+		game_over();
+	}
+	else 
+	{
+		table_texture_control = init_texture;
+		direct_which = 0;
 
-		glutTimerFunc(20, monster_move, NULL);
+		direct_hero--;
+
+		while (hero_Now_HP[direct_hero] == 0)
+		{
+			game_round++;
+			direct_hero--;
+		}
+
+		hero_do = nothing;
+
+		if (game_round % 3 == 0)
+		{
+			monster_round = true;
+			do
+			{
+				direct_hero = rand() % 3;
+			} while (hero_Now_HP[direct_hero] == 0);
+
+			glutTimerFunc(20, monster_move, NULL);
+		}
 	}
 }
 
 void game_over(){
 	game_round = 0;
+	if (victory)
+	{
+		printf("你真棒");
+	}
+	else
+	{
+		printf("你真爛");
+	}
 }
 
-void output(int x, int y, char *string)
+void output(float x, float y, char *string)
 {
 	int len, i;
 	glRasterPos2f(x, y);
@@ -570,18 +613,35 @@ void monster_move(int id){
 				}
 				else if (monster_move_dis_Z == 0)
 				{
-					hero_get_damage[direct_monster] = false;
-					do
+					hero_get_damage[direct_hero] = false;
+
+					if (monster_Now_HP[0] == 0 && monster_Now_HP[1] == 0)
 					{
-						direct_hero = rand() % 3;
-					} while (hero_Now_HP[direct_hero] == 0);
+						over = true;
+						direct_hero = right_hero;
+						for (int i = 0; i < 3; i++)
+						{
+							monster_attack_over[i] = false;
+						}
+						monster_round = false;
+					}
+					else
+					{
+						do
+						{
+							direct_hero = rand() % 3;
+						} while (hero_Now_HP[direct_hero] == 0);
+						monster_attack_over[2] = true;
+					}
 					clock = true;
-					monster_attack_over[2] = true;
 				}
 			}
 		}
 		else
 		{
+			over = true;
+			victory = false;
+			judge_game_over = true;
 			game_over();
 		}
 	}
@@ -617,17 +677,34 @@ void monster_move(int id){
 				else if (monster_move_dis_Z == 0)
 				{
 					hero_get_damage[direct_hero] = false;
-					do
+
+					if (monster_Now_HP[0] == 0)
 					{
-						direct_hero = rand() % 3;
-					} while (hero_Now_HP[direct_hero] == 0);
+						over = true;
+						direct_hero = right_hero;
+						for (int i = 0; i < 3; i++)
+						{
+							monster_attack_over[i] = false;
+						}
+						monster_round = false;
+					}
+					else
+					{
+						do
+						{
+							direct_hero = rand() % 3;
+						} while (hero_Now_HP[direct_hero] == 0);
+						monster_attack_over[1] = true;
+					}
 					clock = true;
-					monster_attack_over[1] = true;
 				}
 			}
 		}
 		else
 		{
+			victory = false;
+			over = true;
+			judge_game_over = true;
 			game_over();
 		}
 	}
@@ -676,6 +753,9 @@ void monster_move(int id){
 		}
 		else
 		{
+			victory = false;
+			over = true;
+			judge_game_over = true;
 			game_over();
 		}
 	}
@@ -733,6 +813,7 @@ void hero_move(int id)
 			hero_moving = false;
 			attack_screen = false;
 			hero_do = -1;
+
 			round_over();
 		}
 		break;
@@ -818,83 +899,89 @@ void myDisplay(void)
 
 		/****Monster*****/
 
+		
+		glPushMatrix();
+		glTranslatef(10.0, 0.0, -15.0);
+		if (monster_round && direct_monster == right_monster)
+		{
+			glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+		}
 		if (monster_Now_HP[2] != 0)
 		{
-			glPushMatrix();
-			glTranslatef(10.0, 0.0, -15.0);
-			if (monster_round && direct_monster == right_monster)
+			draw_Monster_heal(monster_Now_HP[2], monster_Max_HP[2]);
+			if (attack_screen && direct_monster == right_monster)
 			{
-				glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+				//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
+				draw_Monster_direct();
 			}
-				draw_Monster_heal(monster_Now_HP[2], monster_Max_HP[2]);
-				if (attack_screen && direct_monster == right_monster)
-				{
-					//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
-					draw_Monster_direct();
-				}
-				if (monster_get_damage[2])
-				{
-					draw_Monster_get_damage();
-				}
-				glutSolidCube(5.0);
-				//glCallList(list_id);
-			glTranslatef(-10.0, 0.0, 15.0);
-			glPopMatrix();
+			glutSolidCube(5.0);
 		}
+		if (monster_get_damage[2])
+		{
+			draw_Monster_get_damage();
+		}
+		//glCallList(list_id);
+		glTranslatef(-10.0, 0.0, 15.0);
+		glPopMatrix();
+		
 
+		
+		glPushMatrix();
+		glTranslatef(0.0, 0.0, -15.0);
+		if (monster_round && direct_monster == middle_monster)
+		{
+			glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+		}
 		if (monster_Now_HP[1] != 0)
 		{
-			glPushMatrix();
-			glTranslatef(0.0, 0.0, -15.0);
-			if (monster_round && direct_monster == middle_monster)
+			draw_Monster_heal(monster_Now_HP[1], monster_Max_HP[1]);
+			if (attack_screen && direct_monster == middle_monster)
 			{
-				glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+				//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
+				draw_Monster_direct();
 			}
-				draw_Monster_heal(monster_Now_HP[1], monster_Max_HP[1]);
-				if (attack_screen && direct_monster == middle_monster)
-				{
-					//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
-					draw_Monster_direct();
-				}
-				if (monster_get_damage[1])
-				{
-					draw_Monster_get_damage();
-				}
-				glutSolidCube(5.0);
-				//glCallList(list_id);
-			glTranslatef(0.0, 0.0, 15.0);
-			glPopMatrix();
+			glutSolidCube(5.0);
 		}
+		if (monster_get_damage[1])
+		{
+			draw_Monster_get_damage();
+		}
+			//glCallList(list_id);
+		glTranslatef(0.0, 0.0, 15.0);
+		glPopMatrix();
+		
 
+		
+		glPushMatrix();
+		glTranslatef(-10.0, 0.0, -15.0);
+		if (monster_round && direct_monster == left_monster)
+		{
+			glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+		}
 		if (monster_Now_HP[0] != 0)
 		{
-			glPushMatrix();
-			glTranslatef(-10.0, 0.0, -15.0);
-			if (monster_round && direct_monster == left_monster)
+			draw_Monster_heal(monster_Now_HP[0], monster_Max_HP[0]);
+			if (attack_screen && direct_monster == left_monster)
 			{
-				glTranslatef(monster_move_dis_X, monster_move_dis_Y, monster_move_dis_Z); //怪物移動
+				//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
+				draw_Monster_direct();
 			}
-				draw_Monster_heal(monster_Now_HP[0], monster_Max_HP[0]);
-				if (attack_screen && direct_monster == left_monster)
-				{
-					//PlaySound(TEXT("sound/choose.wav"), NULL, SND_ASYNC);
-					draw_Monster_direct();
-				}
-				if (monster_get_damage[0])
-				{
-					draw_Monster_get_damage();
-				}
-				glutSolidCube(5.0);
-				//glCallList(list_id);
-			glTranslatef(10.0, 0.0, 15.0);
-			glPopMatrix();
+			glutSolidCube(5.0);
 		}
+		if (monster_get_damage[0])
+		{
+			draw_Monster_get_damage();
+		}
+		//glCallList(list_id);
+		glTranslatef(10.0, 0.0, 15.0);
+		glPopMatrix();
+		
 
 		/****Hero*****/
 		
 
 		//glBindTexture(GL_TEXTURE_2D, set_textureId[10]);
-		
+		glColor3f(0.5, 0.5, 0.5);
 		if (hero_Now_HP[2] != 0)
 		{
 			glPushMatrix();
@@ -1177,7 +1264,7 @@ void keyPress(unsigned char key, int x, int y){
 	switch (key)
 	{
 	case 13: //Enter key
-		if (!monster_round & !hero_moving)
+		if (!monster_round & !hero_moving && !judge_game_over)
 		{
 			detect_key_Enter();
 		}
@@ -1191,21 +1278,21 @@ void select_table(GLint key, GLint x, GLint y){
 	switch (key)
 	{
 	case GLUT_KEY_UP:
-		if (!attack_screen && !hero_moving && bool_diagram && !monster_round)
+		if (!attack_screen && !hero_moving && bool_diagram && !monster_round && !judge_game_over)
 		{
 			direct_which = (direct_which + 3) % 4;
 			PlaySound(TEXT("sound/choose_table.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_DOWN:
-		if (!attack_screen && !hero_moving && bool_diagram && !monster_round)
+		if (!attack_screen && !hero_moving && bool_diagram && !monster_round && !judge_game_over)
 		{
 			direct_which = (direct_which + 1) % 4;
 			PlaySound(TEXT("sound/choose_table.wav"), NULL, SND_ASYNC);
 		}
 		break;
 	case GLUT_KEY_LEFT:
-		if (attack_screen && !hero_moving && !monster_round)
+		if (attack_screen && !hero_moving && !monster_round && !judge_game_over)
 		{
 			do{
 				direct_monster = (direct_monster + 2) % 3;
@@ -1214,7 +1301,7 @@ void select_table(GLint key, GLint x, GLint y){
 		}
 		break;
 	case GLUT_KEY_RIGHT:
-		if (attack_screen && !hero_moving && !monster_round)
+		if (attack_screen && !hero_moving && !monster_round && !judge_game_over)
 		{
 			do
 			{
