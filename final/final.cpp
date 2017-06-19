@@ -474,12 +474,12 @@ void game_init(){
 		monster_Max_HP[i] = 100;
 		monster_Now_HP[i] = monster_Max_HP[i];
 		hero_Max_HP[i] = 100;
-		//hero_Now_HP[i] = hero_Max_HP[i];
-		hero_Now_HP[i] =20;
+		hero_Now_HP[i] = hero_Max_HP[i];
 		hero_Max_MP[i] = 30;
 		hero_Now_MP[i] = hero_Max_MP[i];
 		monster_attack[i] = 10;
 	}
+		hero_Now_HP[2] = 10;
 		hero_attack[0] = 10;
 		hero_attack[1] = 20;
 		hero_attack[2] = 30;
@@ -619,6 +619,12 @@ void monster_move(int id){
 					{
 						over = true;
 						direct_hero = right_hero;
+						while (hero_Now_HP[direct_hero] == 0)
+						{
+							game_round++;
+							direct_hero--;
+						}
+
 						for (int i = 0; i < 3; i++)
 						{
 							monster_attack_over[i] = false;
@@ -682,6 +688,11 @@ void monster_move(int id){
 					{
 						over = true;
 						direct_hero = right_hero;
+						while (hero_Now_HP[direct_hero] == 0)
+						{
+							game_round++;
+							direct_hero--;
+						}
 						for (int i = 0; i < 3; i++)
 						{
 							monster_attack_over[i] = false;
@@ -743,6 +754,11 @@ void monster_move(int id){
 					clock = true;
 					over = true;
 					direct_hero = right_hero;
+					while (hero_Now_HP[direct_hero] == 0)
+					{
+						game_round++;
+						direct_hero--;
+					}
 					for (int i = 0; i < 3; i++)
 					{
 						monster_attack_over[i] = false;
