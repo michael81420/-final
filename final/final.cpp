@@ -163,8 +163,11 @@ void draw_Hero_state(){
 
 	for (int i = 2; i >= 0; i--)
 	{
+		char s[100], tmp[100];
+
 		HP_x[i] = -55 + 20 * hero_Now_HP[i] / hero_Max_HP[i];
 		MP_x[i] = -55 + 20 * hero_Now_MP[i] / hero_Max_MP[i];
+		
 
 		glColor3f(1.0, 0.0, 0.0);
 		glTranslated(0.0, -3.0, 0.0);
@@ -192,6 +195,15 @@ void draw_Hero_state(){
 		glTexCoord2f(0.0, 1 - 0); glVertex3f(-60, 33.2, 0.0);
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
+
+		_itoa(hero_Now_HP[i], s, 10);
+		_itoa(hero_Max_HP[i], tmp, 10);
+		strcat(s, " / ");
+		strcat(s, tmp);
+		glColor3f(1.0, 1.0, 1.0);
+		glPushMatrix();
+		output(-35, 36, s);
+		glPopMatrix();
 	}
 
 	glEnable(GL_DEPTH_TEST);
@@ -427,7 +439,7 @@ void Init(){
 	set_textureId[3] = load_texture("pic/sky.png");
 	set_textureId[4] = load_texture("pic/skill.png");	// 技能 畫面
 	set_textureId[5] = load_texture("pic/bag.png");		// 背包 畫面
-	set_textureId[6] = load_texture("pic/image.png");	// 圖鑑 畫面
+	set_textureId[6] = load_texture("pic/diagram.png");	// 圖鑑 畫面
 	set_textureId[7] = load_texture("pic/arrow.png");	// 箭頭 
 	set_textureId[8] = load_texture("pic/Hero_direct.png"); // 英雄頭上的綠箭頭
 	set_textureId[9] = load_texture("pic/Monster_direct.png"); // 敵人頭上的紅箭頭
@@ -453,7 +465,7 @@ void game_init(){
 		hero_Now_MP[i] = hero_Max_MP[i];
 		monster_attack[i] = 10;
 	}
-		hero_attack[0] = 10;
+		hero_attack[0] = 100;
 		hero_attack[1] = 20;
 		hero_attack[2] = 30;
 }
@@ -955,6 +967,7 @@ void reshape(int w, int h)
 	gluLookAt(camera_x, camera_y, camera_z, item_x, item_y, item_z, head_x, head_y, head_z);
 
 }
+
 void detect_hero_blue(){
 	switch (direct_hero)
 	{//如果傳入的英雄有死亡的可能，則要再另外加入偵測
@@ -987,6 +1000,7 @@ void detect_hero_blue(){
 		break;
 	}
 }
+
 void detect_hero_blood(){
 	switch (direct_hero)
 	{//如果傳入的英雄有死亡的可能，則要再另外加入偵測
@@ -1054,6 +1068,9 @@ void detect_key_Enter(){
 				if (direct_which == 0){
 					hero_do = attack;
 					attack_screen = true;
+					while (monster_Now_HP[direct_monster] == 0){
+						direct_monster = (direct_monster + 1) % 3;
+					}
 				}
 				else if (direct_which == 1)
 				{
@@ -1073,6 +1090,7 @@ void detect_key_Enter(){
 			else if (table_texture_control == skill){ // 在技能欄
 				if (direct_which == 0){
 					//第一招技能
+					attack_screen = true;
 					monster_do = skill_1;
 					hero_do = skill_1;
 				}
@@ -1085,6 +1103,7 @@ void detect_key_Enter(){
 				}
 				else if (direct_which == 2){
 					//第三招技能
+					attack_screen = true;
 					monster_do = skill_3;
 					hero_do = skill_3;
 				}
@@ -1119,6 +1138,7 @@ void detect_key_Enter(){
 					//無敵藥水
 					if (powerful == false){
 						powerful = true;
+						round_over();
 					}
 					printf("你已經按了無敵鍵\n");
 				}
