@@ -1,57 +1,78 @@
-﻿Build started 2017/6/19 下午 09:54:08.
+﻿Build started 2017/6/20 下午 02:18:09.
      1>Project "C:\Users\User\Desktop\homework\成圖\final\final\final.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\final.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt final.cpp
          final.cpp
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(26): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(153): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(154): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(178): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(179): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(186): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(187): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(194): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(195): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(196): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(197): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(207): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(216): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(278): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(318): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(319): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(329): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(335): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(336): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(337): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(338): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(350): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(351): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(352): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(353): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(354): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(358): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(359): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(360): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(361): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(362): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(377): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(378): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(379): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(380): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(381): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(385): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(386): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(387): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(388): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(389): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(468): warning C4552: '!=' : operator has no effect; expected operator with side-effect
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(923): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(949): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(975): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1006): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1024): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1042): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1337): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(27): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(164): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(165): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(192): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(193): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(206): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(207): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(214): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(215): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(216): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(217): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(227): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(236): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(250): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(298): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(342): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(343): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(372): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(373): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(374): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(375): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(395): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(396): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(397): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(398): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(403): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(404): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(405): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(406): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(430): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(433): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(434): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(435): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(436): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(446): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(452): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(453): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(454): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(455): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(472): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(473): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(474): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(475): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(476): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(480): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(481): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(482): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(483): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(484): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(499): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(500): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(501): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(502): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(503): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(507): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(508): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(509): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(510): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(511): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1252): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1279): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1307): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1338): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1341): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1358): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1360): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1377): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1379): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\user\desktop\homework\成圖\final\final\final.cpp(1657): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib glew32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib freeglut.lib glew32s.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\Desktop\homework\成圖\final\Debug\final.lib" /MACHINE:X86 Debug\final.obj
          Debug\glm.obj
@@ -62,4 +83,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.39
+Time Elapsed 00:00:01.43
